@@ -41,4 +41,29 @@ const addPostSchema = {
   },
 };
 
-module.exports = {getPostsSchema, getPostSchema, addPostSchema}
+const updatePostSchema = {
+  body: {
+    type: 'object',
+    properties: {
+      title: typeString,
+      body: typeString,
+    },
+  },
+  params: {
+    id: { type: 'number' },
+  },
+  response: {
+    200: typeString,
+  },
+};
+
+const deletePostSchema = {
+  params: {
+    id: { type: 'number' },
+  },
+  response: {
+    200: typeString,
+  },
+};
+
+module.exports = {getPostsSchema, getPostSchema, addPostSchema, updatePostSchema, deletePostSchema}

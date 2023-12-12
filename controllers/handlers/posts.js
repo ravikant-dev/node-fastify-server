@@ -28,4 +28,25 @@ const addPostHandler = (req, reply) => {
   reply.send('Post added');
 };
 
-module.exports = { getPostsHandler, getPostHandler, addPostHandler };
+const updatePostHandler = (req, reply) => {
+  const { title, body } = req.body;
+  const {id} = req.params
+  const existingPost = posts.find(post => post.id === id)
+  if(!existingPost){
+    return reply.status(404).send(new Error(`Post with id ${id} doesn't exist`));
+  }
+  existingPost.title = title;
+  existingPost.body = body;
+  reply.send('Post updated!');
+};
+
+const deletePostHandler = (req, reply) => {
+  const {id} = req.params
+  const index = posts.findIndex(post => post.id === id)
+  if(index === -1){
+    return reply.status(404).send(new Error(`Post with id ${id} doesn't exist`));
+  }
+  posts.splice(index,1)
+  reply.send('Post deleted!');
+};
+module.exports = { getPostsHandler, getPostHandler, addPostHandler, updatePostHandler, deletePostHandler };

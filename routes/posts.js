@@ -1,5 +1,5 @@
-const {getPostsSchema, getPostSchema, addPostSchema} = require('../controllers/schemas/posts');
-const {getPostsHandler,getPostHandler, addPostHandler} = require('../controllers/handlers/posts');
+const {getPostsSchema, getPostSchema, addPostSchema, updatePostSchema, deletePostSchema} = require('../controllers/schemas/posts');
+const {getPostsHandler,getPostHandler, addPostHandler, updatePostHandler, deletePostHandler} = require('../controllers/handlers/posts');
 
 const opts = {
     schema: getPostsSchema,
@@ -19,10 +19,22 @@ const addPostOpts = {
   handler: addPostHandler,
 };
 
+const updatePostOpts = {
+  schema: updatePostSchema,
+  handler: updatePostHandler,
+};
+
+const deletePostOpts = {
+  schema: deletePostSchema,
+  handler: deletePostHandler,
+};
+
 const postRoutes = (fastify, options, done) => {
     fastify.get('/api/posts',opts);
     fastify.get('/api/posts/:id', getPostOpts);
     fastify.post('/api/posts/new', addPostOpts);
+    fastify.put('/api/posts/edit/:id', updatePostOpts)
+    fastify.delete('/api/posts/delete/:id', deletePostOpts)
     done();
 }
 
