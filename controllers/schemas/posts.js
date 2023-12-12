@@ -66,4 +66,4 @@ const deletePostSchema = {
   },
 };
 
-module.exports = {getPostsSchema, getPostSchema, addPostSchema, updatePostSchema, deletePostSchema}
+module.exports = {typeString, getPostsSchema, getPostSchema, addPostSchema, updatePostSchema, deletePostSchema}

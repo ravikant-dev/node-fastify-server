@@ -1,5 +1,6 @@
 const fastify = require('fastify')({ logger: true });
-const postRoutes = require('./routes/posts')
+const postRoutes = require('./routes/posts');
+const adminRoutes = require('./routes/admins');
 const PORT = process.env.PORT || 5000;
 
 //Hooks
@@ -8,7 +9,8 @@ fastify.addHook('preHandler', async(_req,_reply) => {
 })
 
 //Register all the routes here
-fastify.register(postRoutes)
+fastify.register(postRoutes);
+fastify.register(adminRoutes);
 
 //Starting server
 const startServer = () => {
