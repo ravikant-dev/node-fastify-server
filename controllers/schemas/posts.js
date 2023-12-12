@@ -27,4 +27,18 @@ const getPostsSchema = {
     },
   };
 
-module.exports = {getPostsSchema, getPostSchema}
+const addPostSchema = {
+  body: {
+    type: 'object',
+    required: ['title', 'body'],
+    properties: {
+      title: typeString,
+      body: typeString,
+    },
+  },
+  response: {
+    200: typeString,
+  },
+};
+
+module.exports = {getPostsSchema, getPostSchema, addPostSchema}

@@ -20,4 +20,12 @@ const getPostHandler = (req, reply) => {
   return reply.send(post);
 };
 
-module.exports = { getPostsHandler,getPostHandler };
+const addPostHandler = (req, reply) => {
+  const { title, body } = req.body;
+
+  const id = posts.length + 1; // posts is imported from cloud/posts.js
+  posts.push({ id, title, body });
+  reply.send('Post added');
+};
+
+module.exports = { getPostsHandler, getPostHandler, addPostHandler };
