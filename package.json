@@ -10,8 +10,11 @@
   "author": "Ravikant Kushwaha",
   "license": "ISC",
   "dependencies": {
+    "@fastify/auth": "^4.4.0",
+    "@fastify/swagger": "^7.0.0",
     "config": "^3.3.9",
     "fastify": "^4.24.3",
+    "jsonwebtoken": "^9.0.2",
     "ramda": "^0.29.1"
   },
   "devDependencies": {
