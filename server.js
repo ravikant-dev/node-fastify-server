@@ -14,10 +14,11 @@ fastify.register(require('@fastify/swagger'), {
   exposeRoute: true,
   routePrefix: '/docs',
   swagger: {
-    info: { title: 'Fastify-api',version: '0.1.0' },
+    info: { title: 'Fastify-api',version: '1.0' },
   },
 });
 
+// https://fastify.dev/docs/latest/Reference/Decorators/
 fastify.decorate('verifyToken', verifyToken); 
 
 //Register all the routes here

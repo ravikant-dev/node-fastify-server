@@ -10,7 +10,7 @@ const loginAdminOpts = {
     handler: loginAdmin
 }
 
-const adminRoutes = (fastify, options, done) => {
+const adminRoutes = (fastify, _options, done) => {
     fastify.post('/api/add/admin', addAdminOpts);
     fastify.post('/api/login/admin', loginAdminOpts);
     done();

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const verifyToken = (req, reply, done) => {
+const verifyToken = (req, _reply, done) => {
     const { token } = req.headers;
   
     jwt.verify(token, 'my_jwt_secret', (err, decoded) => {
